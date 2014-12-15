@@ -200,6 +200,8 @@ ELSE()
 	ENDIF()
 ENDIF()
 
+option(SuiteSparse_GPU "Compile CHOLMOD with GPU acceleration" OFF)
+
 IF(BUILD_METIS)
 	set(SuiteSparse_LINKER_METIS_LIBS "metis")
 else()
