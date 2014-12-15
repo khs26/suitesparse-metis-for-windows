@@ -19,12 +19,13 @@ declare_suitesparse_library(cholmod "${LIBSRCS}" "${LIBHDRS}"
 
 # CUDA modifications
 if(SuiteSparse_GPU)
+   find_package(CUDA)
    set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-O3 -gencode=arch=compute_20,code=sm_20 -gencode=arch=compute_30,code=sm_30 -gencode=arch=compute_35,code=sm_35)
    cuda_include_directories("${suitesparseconfig_SOURCE_DIR}")
    cuda_compile(CHOLMOD_GPU_CU_FILES "${CHOLMOD_SOURCE_DIR}/GPU/cholmod_gpu_kernels.cu")
    file(GLOB CHOLMOD_GPU_C_FILES "${CHOLMOD_SOURCE_DIR}/GPU/*.c")
 
    cuda_add_library(cholmod_cuda ${CHOLMOD_GPU_CU_FILES} ${CHOLMOD_GPU_C_FILES})
-   cuda_add_blas_to_target(cholmod_cuda)
+   cuda_add_cublas_to_target(cholmod_cuda)
 endif(SuiteSparse_GPU)
 # End CUDA modifications
