@@ -32,6 +32,7 @@ set(suitesparseconfig_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SuiteSparse_config)
 
 set(SUBPROJECTS_TO_ADD 
 	SuiteSparse_config
+    SuiteSparse_GPURuntime
 	AMD
 	BTF
 	CAMD
@@ -43,7 +44,8 @@ set(SUBPROJECTS_TO_ADD
 	LDL
 	UMFPACK
 	SPQR
-	CACHE STRING "list of all sub-directories to add to cmake build"
+	GPUQREngine
+    CACHE STRING "list of all sub-directories to add to cmake build"
 )
 foreach(subdir ${SUBPROJECTS_TO_ADD})
 	add_subdirectory(${subdir})
