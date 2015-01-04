@@ -9,7 +9,6 @@ include_directories("${COLAMD_SOURCE_DIR}/Include")
 include_directories("${CCOLAMD_SOURCE_DIR}/Include")
 
 # Headers:
-message("GPUQREngine source directory: ${GPUQREngine_SOURCE_DIR}")
 include_directories("${GPUQREngine_SOURCE_DIR}/Include")
 include_directories("${SuiteSparse_GPURuntime_SOURCE_DIR}/Include")
 FILE(GLOB LIBHDRS "${GPUQREngine_SOURCE_DIR}/Include/*.h")

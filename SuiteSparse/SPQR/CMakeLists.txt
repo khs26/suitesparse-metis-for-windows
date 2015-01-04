@@ -64,11 +64,6 @@ if(SuiteSparse_GPU)
       TARGET_PRIVATE_LINK	${SuiteSparse_LINKER_LAPACK_BLAS_LIBS}
       TARGET_PUBLIC_LINK 	camd ccolamd cholmod_cuda gpu_qr_engine ${CUDA_CUBLAS_LIBRARIES} ${SuiteSparse_LINKER_METIS_LIBS}
    )
-   get_property(spqr_includes TARGET spqr PROPERTY INCLUDE_DIRECTORIES)
-   foreach(spqr_include ${spqr_includes})
-      message(${spqr_include})
-   endforeach()
-   message("${GPUQREngine_SOURCE_DIR}/Include")
 # We need to set GPU_BLAS for #ifdef statements
    target_compile_definitions(spqr PUBLIC GPU_BLAS)
 else()	
